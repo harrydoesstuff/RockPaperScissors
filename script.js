@@ -106,4 +106,15 @@ function game() {
     }
 }
 
+function finalResult () {
+    if (userScore > computerScore) {
+        return "The final score is " + userScore + " to " + computerScore + " . You win!";
+    } else if (computerScore > userScore) {
+        return "The final score is " + computerScore + " to " + userScore + " . You lose :(";
+    } else if (computerScore === userScore) {
+        return "The final score is " + userScore + " to " + computerScore + " . It's a tie! Refresh the page to play again.";
+    }
+}
+
 console.log (game())
+console.log (finalResult())
