@@ -15,7 +15,7 @@
 
 //take input of a string from user
 
-let getPlayerChoice = prompt("Please enter rock, paper or scissors:")
+let getPlayerChoice = prompt("Please enter rock, paper or scissors:").toLowerCase();
 
 //convert string input to integer
 
