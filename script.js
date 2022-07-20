@@ -5,19 +5,18 @@
 
 //PSEUDOCODE
 
-//take input of string from user, rock paper or scissors = playerSelection
+//take input of string from user
 //convert from string to integer
+//3 = rock
+//2 = paper
+//1 = scissors
 //create function for computer to randomly return either rock, paper or scissors = getComputerChoice
 //create function that takes two parameters (playerSelection and getComputerChoice) = playRound
 //return a string that declares the winner of the round
 //create function to play 5 round game that keeps score and reports winner or loser at the end = game
 
 
-//take input of a string from user
 
-
-
-//convert string input to integer
 
 function playerInput() {
     let getPlayerChoice = prompt("Please enter rock, paper or scissors:").toLowerCase();
@@ -30,73 +29,50 @@ function playerInput() {
     }
 }
 
-//create function for computer to randomly return either rock, paper or scissors = getComputerChoice
-//3 = rock
-//2 = paper
-//1 = scissors
+//here I'm taking the players input, converting it to all lowercase, then converting the answer to a string.
+
 
 function getComputerChoice() {
     let theRandomNumber = Math.floor(Math.random() * 3) +1;
         return theRandomNumber;
     }
 
-
-// function getComputerChoice() {
-// let theRandomNumber = Math.floor(Math.random() * 3) +1;
-//     if (theRandomNumber === 3) {
-//         return "rock"; 
-//     }else if (theRandomNumber === 2) {
-//         return "paper";
-//     }else {
-//         return "scissors";
-//     }  
-// }
-
-//create function that compares getPlayerChoice and getComputerChoice and declares a winner of the round (playerSelection = getPlayerChoice, computerSelection = getComputerChoice)
-//return a string that declares the winner of the round
+//here I'm generating a random number between 1 and 3 that will be the computers selection.
 
     let userScore = 0;
     let computerScore = 0;
 
-function playRound() {
+//declaring two variables to track the scores of the user and computer, setting their initial value to 0
 
-    
+function playRound() {
     const computerSelection = getComputerChoice();
     const playerSelection = playerInput();
 
     if (playerSelection === computerSelection) {
-        return "A tie!"
-        
+        return "A tie!"       
     } else if (playerSelection === 2 && computerSelection === 3){
         userScore++;
         return "You win this round! paper beats rock";
-
     } else if (playerSelection === 1 && computerSelection === 2) {
         userScore++;
         return "You win this round! scissors beats paper";
-
     } else if  (playerSelection === 3 && computerSelection === 1) {
         userScore++;
         return "You win this round! rock beats scissors";
-
     } else if (playerSelection === 3 && computerSelection === 2) {
         computerScore++;
         return "You lose! paper beats rock";
-
     } else if (playerSelection === 2 && computerSelection === 1) {
         computerScore++;
         return "You lose! scissors beats paper";
-
     } else if (playerSelection === 1 && computerSelection === 3) {
         computerScore++;
         return "You lose! rock beats scissors";
     }
  }
 
+ //running the round by comparing the user selection to the computer selection. Based on the result, the score for either side will tick up by 1 (or none if a tie)
 
-
-
-//create function to play 5 round game that keeps score and reports winner or loser at the end = game
 
 function game() {
     for (let i = 0; i < 5; i++) {
@@ -105,6 +81,8 @@ function game() {
      console.log("Computer's score = " + computerScore);
     }
 }
+
+//creating a loop to run the game for 5 rounds and print the score at the end of each round.
 
 function finalResult () {
     if (userScore > computerScore) {
@@ -116,5 +94,9 @@ function finalResult () {
     }
 }
 
+//printing the final result and declaring a winner, loser, or a tie.
+
 console.log (game())
 console.log (finalResult())
+
+//console.logs to make the game and final result functions execute and print to the browser console.
