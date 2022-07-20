@@ -29,7 +29,7 @@ function playerInput() {
     }
 }
 
-//here I'm taking the players input, converting it to all lowercase, then converting the answer to a string.
+//here I'm taking the players input, converting it to all lowercase, then converting the answer to an integer.
 
 
 function getComputerChoice() {
