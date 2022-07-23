@@ -93,3 +93,18 @@ buttons.forEach((button) => {
 
 
 
+// const scissors = document.getElementById("1");
+// const paper = document.getElementById("2");
+// const rock = document.getElementById("3");
+
+// scissors.addEventListener("click", function() {
+//     playRound(1, computerSelection);
+// })
+
+// paper.addEventListener("click", function() {
+//     playRound(2, computerSelection);
+// })
+
+// rock.addEventListener("click", function() {
+//     playRound(3, computerSelection);
+// })
