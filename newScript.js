@@ -11,6 +11,7 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 
+
 rock.addEventListener("click", () => {
     playRound(3);
 })
@@ -31,29 +32,30 @@ function getComputerChoice() {
 function playRound (playerSelection, computerSelection) {
 
     computerSelection = getComputerChoice();
-
+    const roundResult = document.querySelector(".roundResult");
+    let computerScore = document.querySelector(".computerScore");
+    let playerScore = document.querySelector(".playerScore");
     
     if (playerSelection === 3 && computerSelection === 1) {
-        console.log("player wins");
-        return;
+        roundResult.textContent = "player wins";
+        playerScore++;
     } else if (playerSelection === 2 && computerSelection === 3) {
-        console.log("player wins");
-        return;
+        roundResult.textContent = "player wins";
+        playerScore++;
     } else if (playerSelection === 1 && computerSelection === 2) {
-        console.log("player wins");
-        return;
+        roundResult.textContent = "player wins";
+        playerScore++;
     } else if (playerSelection === 3 && computerSelection === 2) {
-        console.log("computer wins");
-        return;
+        roundResult.textContent = "computer wins";
+        computerScore++;
     } else if (playerSelection === 2 && computerSelection === 1) {
-        console.log("computer wins");
-        return;
+        roundResult.textContent = "computer wins";
+        computerScore++;
     } else if (playerSelection === 1 && computerSelection === 3) {
-        console.log("computer wins");
-        return;
+        roundResult.textContent = "computer wins";
+        computerScore++;
     } else if (playerSelection === computerSelection) {
-        console.log("tie");
-        return;
+        roundResult.textContent = "tie";
     }
 }
 
