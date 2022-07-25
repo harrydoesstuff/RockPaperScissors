@@ -1,22 +1,26 @@
 //ok lets start out fresh 
 
-let computerSelection = getComputerChoice()
+
+//scissors = 1
+//paper = 2
+//rock = 3
 let playerSelection; 
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+
 rock.addEventListener("click", () => {
-    playRound(3, computerSelection);
+    playRound(3);
 })
 
 paper.addEventListener("click", () => {
-    playRound(2, computerSelection);
+    playRound(2);
 })
 
 scissors.addEventListener("click", () => {
-    playRound(1, computerSelection);
+    playRound(1);
 })
 
 function getComputerChoice() {
@@ -25,6 +29,10 @@ function getComputerChoice() {
     }
 
 function playRound (playerSelection, computerSelection) {
+
+    computerSelection = getComputerChoice();
+
+    
     if (playerSelection === 3 && computerSelection === 1) {
         console.log("player wins");
         return;
