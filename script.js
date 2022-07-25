@@ -36,15 +36,18 @@ function playRound(playerSelection, computerSelection) {
 
 const buttons = document.querySelectorAll("button");
 
-buttons.forEach((button) => {
+buttons.forEach((button => button.addEventListener('click', getPlayerChoice)))
 
-    button.addEventListener("click", () => {
-        playerSelection = button.id;
-        playRound(playerSelection, computerSelection)
-        console.log(playRound())
-    })
+function getPlayerChoice(e) {
+    if (e.target = "button#1") {
+        playerSelection = 1;
+    } else if (e.target = "button#2") {
+        playerSelection = 2;
+    } else if (e.target = "button#3") {
+        playerSelection = 3;
+    }
+}
 
-})
 
 
 
