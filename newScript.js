@@ -9,7 +9,12 @@ let playerSelection;
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-
+const roundResult = document.querySelector(".roundResult");
+const computerRoundResult = document.querySelector(".computerScore");
+const playerRoundResult = document.querySelector(".playerScore");
+const endGame = document.querySelector(".endGameResult");
+let computerScore = 0
+let playerScore = 0 
 
 
 rock.addEventListener("click", () => {
@@ -32,128 +37,84 @@ function getComputerChoice() {
 function playRound (playerSelection, computerSelection) {
 
     computerSelection = getComputerChoice();
-    const roundResult = document.querySelector(".roundResult");
-    let computerScore = document.querySelector(".computerScore");
-    let playerScore = document.querySelector(".playerScore");
+  
     
     if (playerSelection === 3 && computerSelection === 1) {
-        roundResult.textContent = "player wins";
-        playerScore++;
+        // roundResult.textContent = "player wins";
+        // playerScore++;
+        playerWins();
+        updateResults();
     } else if (playerSelection === 2 && computerSelection === 3) {
-        roundResult.textContent = "player wins";
-        playerScore++;
+        // roundResult.textContent = "player wins";
+        // playerScore++;
+        playerWins();
+        updateResults();
     } else if (playerSelection === 1 && computerSelection === 2) {
-        roundResult.textContent = "player wins";
-        playerScore++;
+        // roundResult.textContent = "player wins";
+        // playerScore++;
+        playerWins();
+        updateResults();
     } else if (playerSelection === 3 && computerSelection === 2) {
-        roundResult.textContent = "computer wins";
-        computerScore++;
+        // roundResult.textContent = "computer wins";
+        // computerScore++;
+        computerWins();
+        updateResults();
     } else if (playerSelection === 2 && computerSelection === 1) {
-        roundResult.textContent = "computer wins";
-        computerScore++;
+        // roundResult.textContent = "computer wins";
+        // computerScore++;
+        computerWins();
+        updateResults();
     } else if (playerSelection === 1 && computerSelection === 3) {
-        roundResult.textContent = "computer wins";
-        computerScore++;
+        // roundResult.textContent = "computer wins";
+        // computerScore++;
+        computerWins();
+        updateResults();
     } else if (playerSelection === computerSelection) {
-        roundResult.textContent = "tie";
+        tie();
+        updateResults();
+    }
+    
+}
+
+function playerWins() {
+    roundResult.textContent = "You win!"
+    playerScore++; 
+}
+
+function computerWins() {
+    roundResult.textContent = "You lose :("
+    computerScore++; 
+}
+
+function tie() {
+    roundResult.textContent = "Tie!" 
+}
+
+function updateResults() {
+    if (computerScore < 5 || playerScore < 5){
+    computerRoundResult.innerHTML = computerScore;
+    playerRoundResult.innerHTML = playerScore;
+    } else if (computerScore >= 5 || playerScore >= 5){
+    endGameResult.textContent = "Game Over! The final score is Computer: ", "${computerScore}", " Player: ", "${playerScore}";
     }
 }
 
 
-
-// const selections = document.querySelectorAll("[data-selection]");
-
-// selections.forEach(selections => {
-//     selections.addEventListener("click", e => {
-//         const playerSelection = selections.dataset.selection;
-//         playRound(playerSelection);
-//     })
-// })
-
-// function playRound(playerSelection) {
-
-//     let computerSelection = getComputerChoice();
-
-//     if (playerSelection === computerSelection) {
-//         tie();
-//     } else if (playerSelection === 2 && computerSelection === 3){
-//         playerWins();
-//     } else if (playerSelection === 1 && computerSelection === 2) {
-//         playerWins();
-//     } else if  (playerSelection === 3 && computerSelection === 1) {
-//         playerWins();
-//     } else if (playerSelection === 3 && computerSelection === 2) {
-//         computerWins();
-//     } else if (playerSelection === 2 && computerSelection === 1) {
-//         computerWins();
-//     } else if (playerSelection === 1 && computerSelection === 3) {
-//         computerWins();
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//      console.log(playRound());
+//      console.log("Your score = " + userScore);
+//      console.log("Computer's score = " + computerScore);
 //     }
-    
 // }
 
-// function computerWins() {
-//     console.log("computer wins");
-// }
 
-// function playerWins() {
-//     console.log("player wins");
-// }
-
-// function tie() {
-//     console.log("tie");
-// }
-
-// // computer choice
-// function getComputerChoice() {
-//     let theRandomNumber = Math.floor(Math.random() * 3) +1;
-//     return theRandomNumber
+// function finalResult () {
+//     if (userScore > computerScore) {
+//         return "The final score is " + userScore + " to " + computerScore + " . You win!";
+//     } else if (computerScore > userScore) {
+//         return "The final score is " + computerScore + " to " + userScore + " . You lose :(";
+//     } else if (computerScore === userScore) {
+//         return "The final score is " + userScore + " to " + computerScore + " . It's a tie! Refresh the page to play again.";
 //     }
-
-// computerchoice
-
-
-
-
-//WEBDEVSIMPLIFIED CODE
-
-// const selectionButtons = document.querySelectorAll("[data-selection]")
-// const SELECTIONS = [
-//     {
-//         name: "rock",
-//         beats: "scissors"
-//     },
-//     {
-//         name: "paper",
-//         beats: "rock"
-//     },
-//     {
-//         name: "scissors",
-//         beats: "paper"
-//     }
-// ]
-
-
-// selectionButtons.forEach(selectionButton => {
-//     selectionButton.addEventListener("click", e => {
-//         const selectionName = selectionButton.dataset.selection;
-//         const selection = SELECTIONS.find(selection => selection.name === selectionName)
-//         makeSelection(selection)
-//     })
-// })
-
-// function makeSelection(selection) {
-//     const computerSelection = randomSelection()
-//     const yourWinner = isWinner(selection, computerSelection)
-//     const computerWinner = isWinner(computerSelection, selection)
-//     console.log(computerSelection)
-// }
-
-// function isWinner(selection, opponentSelection) {
-//     return selection.beats === opponentSelection.name;
-// }
-
-// function randomSelection() {
-//     const randomIndex = Math.floor (Math.random() * SELECTIONS.length)
-//     return SELECTIONS[randomIndex];
 // }
