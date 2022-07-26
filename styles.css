@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    font-size: 30px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-self:center;
+}
+
+.theRock {
+    width: 150px;
+    height: 180px;
+}
+
+.thePaper {
+    width: 200px;
+    height: 200px;
+}
+
+.theScissor {
+    width: 200px;
+    height: 150px;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;   
+}
+
+.subHeading {
+    font-size: 20px;
+    font-weight: 300;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+.buttons {
+    padding-left: 500px;
+    padding-right: 500px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0;
+    max-height: 300px;
+    width: auto;
+    align-items: center;
+    align-self: center;
+}
+
+.scoreBoard {
+    width: 300px;   
+    height: 200px;
+    padding-top: 80px;
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.currentRound {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+
+.runningScore {
+    display:flex;
+    justify-content: space-between;
+   
+}
