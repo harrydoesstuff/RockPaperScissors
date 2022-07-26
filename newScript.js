@@ -12,7 +12,7 @@ const scissors = document.querySelector("#scissors");
 const roundResult = document.querySelector(".roundResult");
 const computerRoundResult = document.querySelector(".computerScore");
 const playerRoundResult = document.querySelector(".playerScore");
-const endGame = document.querySelector(".endGameResult");
+const endGameResult = document.querySelector(".endGameResult");
 let computerScore = 0
 let playerScore = 0 
 
@@ -43,35 +43,35 @@ function playRound (playerSelection, computerSelection) {
         // roundResult.textContent = "player wins";
         // playerScore++;
         playerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === 2 && computerSelection === 3) {
         // roundResult.textContent = "player wins";
         // playerScore++;
         playerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === 1 && computerSelection === 2) {
         // roundResult.textContent = "player wins";
         // playerScore++;
         playerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === 3 && computerSelection === 2) {
         // roundResult.textContent = "computer wins";
         // computerScore++;
         computerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === 2 && computerSelection === 1) {
         // roundResult.textContent = "computer wins";
         // computerScore++;
         computerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === 1 && computerSelection === 3) {
         // roundResult.textContent = "computer wins";
         // computerScore++;
         computerWins();
-        updateResults();
+        // updateResults();
     } else if (playerSelection === computerSelection) {
         tie();
-        updateResults();
+        // updateResults();
     }
     
 }
@@ -79,25 +79,45 @@ function playRound (playerSelection, computerSelection) {
 function playerWins() {
     roundResult.textContent = "You win!"
     playerScore++; 
+    computerRoundResult.innerHTML = computerScore;
+    playerRoundResult.innerHTML = playerScore;
+    if (playerScore === 5) {
+        endGameResult.textContent = "You reached 5, you win. Reload the page to play again."
+        document.querySelector("#rock").disabled = true;
+        document.querySelector("#paper").disabled = true;
+        document.querySelector("#scissors").disabled = true;
+    }
 }
 
 function computerWins() {
     roundResult.textContent = "You lose :("
     computerScore++; 
+    computerRoundResult.innerHTML = computerScore;
+    playerRoundResult.innerHTML = playerScore;
+    if (computerScore === 5) {
+        endGameResult.textContent = "Computer reached 5, you lose. Reload the page to play again."
+        document.querySelector("#rock").disabled = true;
+        document.querySelector("#paper").disabled = true;
+        document.querySelector("#scissors").disabled = true;
+    }
 }
 
 function tie() {
     roundResult.textContent = "Tie!" 
 }
 
-function updateResults() {
-    if (computerScore < 5 || playerScore < 5){
-    computerRoundResult.innerHTML = computerScore;
-    playerRoundResult.innerHTML = playerScore;
-    } else if (computerScore >= 5 || playerScore >= 5){
-    endGameResult.textContent = "Game Over! The final score is Computer: ", "${computerScore}", " Player: ", "${playerScore}";
-    }
+function reloadPage() {
+    window.location.reload();
 }
+
+// function updateResults() {
+//     if (computerScore != 5 || playerScore != 5){
+//     computerRoundResult.innerHTML = computerScore;
+//     playerRoundResult.innerHTML = playerScore;
+//     } else if (computerScore === 5 || playerScore === 5){
+//     endGameResult.textContent = "Game Over! The final score is Computer: ", "${computerScore}", " Player: ", "${playerScore}";
+//     }
+// }
 
 
 // function game() {
